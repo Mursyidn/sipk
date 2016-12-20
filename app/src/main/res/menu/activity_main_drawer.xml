@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/karyawan"
+            android:icon="@drawable/karyawan"
+            android:title="Data Karyawan" />
+        <item
+            android:id="@+id/prosesgaji"
+            android:icon="@drawable/gaji"
+            android:title="Proses Gaji" />
+
+    </group>
+
+    <item android:title="Systeam">
+        <menu>
+            <item
+                android:id="@+id/about"
+                android:icon="@drawable/ic_menu_share"
+                android:title="About" />
+            <item
+                android:id="@+id/logout"
+                android:icon="@drawable/ic_menu_send"
+                android:title="logout" />
+        </menu>
+    </item>
+
+</menu>

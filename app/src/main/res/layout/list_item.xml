@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical">
+    <!-- NIk label -->
+    <TextView
+        android:id="@+id/nik"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dip"
+        android:text="NIK : " />
+
+    <!-- Name Label -->
+    <TextView
+        android:id="@+id/nama_karyawan"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dip"
+        android:paddingTop="6dip"
+        android:text="NAMA :"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <!-- Angkatan label -->
+    <TextView
+        android:id="@+id/tanggal_lahir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text=" " />
+    <TextView
+        android:id="@+id/kode_perusahaan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="Perusahaan : " />
+    <TextView
+        android:id="@+id/status_karyawan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="Perusahaan : " />
+
+</LinearLayout>

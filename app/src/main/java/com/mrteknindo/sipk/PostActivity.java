@@ -53,7 +53,8 @@ public class PostActivity extends ListActivity implements View.OnClickListener {
     private static String TAG_KODE_KARYAWAN = "kode_karyawan";
     private static String TAG_NAMA_KARYAWAN = "nama_karyawan";
     private static String TAG_NAMA_PERUSAHAAN = "nama_perusahaan";
-
+    private static String TAG_UPAH_POKOK = "upah_pokok";
+    private static String TAG_GAJI = "tot_gaji";
 
 
     // private ListAdapter daftar;
@@ -140,15 +141,15 @@ public class PostActivity extends ListActivity implements View.OnClickListener {
                     final String kode_karyawan = map.get(TAG_KODE_KARYAWAN);
                     final String nama_karyawan = map.get(TAG_NAMA_KARYAWAN);
                     final String nama_perusahaan = map.get(TAG_NAMA_PERUSAHAAN);
-
-
+                    final String upah_pokok = map.get(TAG_UPAH_POKOK) ;
+                    final String tot_gaji = map.get(TAG_GAJI) ;
 
                 /*Intent update = new Intent(MainActivity.this, UpdateBarang.class);
                 update.putExtra("kode", kode);
                 update.putExtra("nama", nama);
                 update.putExtra("harga", harga);
                 startActivity(update);*/
-                    final CharSequence[] dialogItem = {"Detail", "Update", "Delete"};
+                    final CharSequence[] dialogItem = {"Detail", "Delete"};
                     AlertDialog.Builder builder = new AlertDialog.Builder(PostActivity.this);
                     builder.setTitle("Pilihan");
                     builder.setItems(dialogItem, new DialogInterface.OnClickListener() {
@@ -158,7 +159,7 @@ public class PostActivity extends ListActivity implements View.OnClickListener {
                                 case 0:
                                     Intent iLihat = new Intent(PostActivity.this, DetailGaji.class);
                                     iLihat.putExtra("periode", periode);
-                                    iLihat.putExtra("periode_kehadiran", periode_kehadiran);
+                                    iLihat.putExtra("periode kehadiran", periode_kehadiran);
                                     iLihat.putExtra("h_kerja", h_kerja);
                                     iLihat.putExtra("h_cuti", h_cuti);
                                     iLihat.putExtra("h_sakit", h_sakit);
@@ -170,36 +171,20 @@ public class PostActivity extends ListActivity implements View.OnClickListener {
                                     iLihat.putExtra("kode_karyawan", kode_karyawan);
                                     iLihat.putExtra("nama_karyawan", nama_karyawan);
                                     iLihat.putExtra("nama_perusahaan", nama_perusahaan);
+                                    iLihat.putExtra("upah_pokok", upah_pokok);
+                                    iLihat.putExtra("tot_gaji", tot_gaji);
                                     startActivity(iLihat);
                                     break;
 
                                 case 1:
-                                    Intent iUpdate = new Intent(PostActivity.this, UpdateGaji.class);
-                                    iUpdate.putExtra("periode", periode);
-                                    iUpdate.putExtra("periode_kehadiran", periode_kehadiran);
-                                    iUpdate.putExtra("h_kerja", h_kerja);
-                                    iUpdate.putExtra("h_cuti", h_cuti);
-                                    iUpdate.putExtra("h_sakit", h_sakit);
-                                    iUpdate.putExtra("h_izin_p", h_izin_p);
-                                    iUpdate.putExtra("h_tanpa_k", h_tanpa_k);
-                                    iUpdate.putExtra("jam_minus", jam_minus);
-                                    iUpdate.putExtra("potongan_pinjaman", potongan_pinjaman);
-                                    iUpdate.putExtra("kode_gaji", kode_gaji);
-                                    iUpdate.putExtra("kode_karyawan", kode_karyawan);
-                                    iUpdate.putExtra("nama_karyawan", nama_karyawan);
-                                    iUpdate.putExtra("nama_perusahaan", nama_perusahaan);
-                                    startActivity(iUpdate);
-                                    break;
-
-                                case 2:
                                     new AlertDialog.Builder(PostActivity.this)
                                             .setIcon(R.drawable.ic_warning)
                                             .setTitle("Hapus Data")
-                                            .setMessage("Anda yakin akan Menghapus " + kode_karyawan + " ?")
+                                            .setMessage("Anda yakin akan Menghapus " + kode_gaji + " ?")
                                             .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                                    aksiSimpan = new AddBarangTask(kode_gaji);
+                                                    aksiSimpan = new AddBarangTask(kode_gaji  );
                                                     aksiSimpan.execute((Void) null);
                                                 }
                                             })
@@ -228,17 +213,23 @@ public class PostActivity extends ListActivity implements View.OnClickListener {
 // looping through All Students
                 for (int i = 0; i < dataBarang.length(); i++) {
                     JSONObject c = dataBarang.getJSONObject(i);
-                    String periode = "periode : " + c.getString(TAG_PERIODE);
-                    String periode_kehadiran = "periode_kehadiran : " + c.getString(TAG_PERIODE_KEHADIRAN);
-                    String nama_karyawan  = "nama_karyawan :  " + c.getString(TAG_NAMA_KARYAWAN);
-                    String nama_perusahaan = "nama_perusahaan :  " + c.getString(TAG_NAMA_PERUSAHAAN);
+                    String periode = "" + c.getString(TAG_PERIODE);
+                    String kode_gaji = "" + c.getString(TAG_KODE_GAJI);
+                    String periode_kehadiran = "" + c.getString(TAG_PERIODE_KEHADIRAN);
+                    String nama_karyawan  = "" + c.getString(TAG_NAMA_KARYAWAN);
+                    String nama_perusahaan = "" + c.getString(TAG_NAMA_PERUSAHAAN);
+                    String upah_pokok = "Rp. " + c.getString(TAG_UPAH_POKOK);
+                    String tot_gaji = "Rp. " + c.getString(TAG_GAJI);
 // tmp hashmap for single student
                     HashMap<String, String> barang = new HashMap<String, String>();
 // adding each child node to HashMap key => value
                     barang.put(TAG_PERIODE, periode);
                     barang.put(TAG_PERIODE_KEHADIRAN, periode_kehadiran);
+                    barang.put(TAG_KODE_GAJI, kode_gaji);
                     barang.put(TAG_NAMA_KARYAWAN, nama_karyawan);
+                    barang.put(TAG_UPAH_POKOK, upah_pokok);
                     barang.put(TAG_NAMA_PERUSAHAAN, nama_perusahaan);
+                    barang.put(TAG_GAJI, tot_gaji);
                     barangList.add(barang);
                 }
                 return barangList;
@@ -266,8 +257,7 @@ public class PostActivity extends ListActivity implements View.OnClickListener {
             String data = null;
             try {
 //Set Data Post
-                data = URLEncoder.encode("kode", "UTF-8")
-                        + "=" + URLEncoder.encode(mkode_gaji, "UTF-8");
+                data = URLEncoder.encode("kode_gaji", "UTF-8") + "=" + URLEncoder.encode(mkode_gaji, "UTF-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -277,7 +267,7 @@ public class PostActivity extends ListActivity implements View.OnClickListener {
             try
             {
 // Defined URL where to send data
-                URL url = new URL("http://dthan.net/delete_barang.php");
+                URL url = new URL("http://192.168.14.1/sipk_webservice/index.php/gaji");
 // Send POST data request
                 URLConnection conn = url.openConnection();
                 conn.setDoOutput(true);

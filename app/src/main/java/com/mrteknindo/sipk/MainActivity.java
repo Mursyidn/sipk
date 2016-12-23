@@ -13,11 +13,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.text.Html;
+
+import java.util.HashMap;
 
 import static com.mrteknindo.sipk.R.drawable.karyawan;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    AlertDialogManager alert = new AlertDialogManager();
+
+    // Session Manager Class
+    SessionManager session;
+
+
+    TextView lblName, lblEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +38,35 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        session = new SessionManager(getApplicationContext());
+
+        TextView lblName = (TextView) findViewById(R.id.lblName);
+        TextView lblEmail = (TextView) findViewById(R.id.lblEmail);
+
+
+        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+        session.checkLogin();
+
+        // get user data from session
+        HashMap<String, String> user = session.getUserDetails();
+
+        // name
+        String name = user.get(SessionManager.KEY_NAME);
+
+        // email
+        String email = user.get(SessionManager.KEY_EMAIL);
+
+        // displaying user data
+
+        lblName.setText(Html.fromHtml("Name: <b>" + name + "</b>"));
+        lblEmail.setText(Html.fromHtml("Email: <b>" + email + "</b>"));
+
+
+        /**
+         * Logout button click event
+         * */
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -80,10 +122,10 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+        // mengatur intent menu utama
         int id = item.getItemId();
 
-        switch (id){
+        switch (id) {
             case R.id.karyawan:
                 Intent iPesan = new Intent(getApplicationContext(), GetActivity.class);
                 startActivity(iPesan);
@@ -93,6 +135,16 @@ public class MainActivity extends AppCompatActivity
                 Intent prosesgaji = new Intent(getApplicationContext(), PostActivity.class);
                 startActivity(prosesgaji);
                 break;
+
+            case R.id.about:
+                Intent about = new Intent(getApplicationContext(), MapsActivity.class);
+                startActivity(about);
+                break;
+            case R.id.logout:
+                Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(logout);
+                break;
+
         }
 
 
@@ -102,3 +154,5 @@ public class MainActivity extends AppCompatActivity
 
     }
 }
+
+

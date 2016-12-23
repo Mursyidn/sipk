@@ -9,83 +9,107 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="es.esy.hangatsenja.post.UpdateBarang">
-
-    <ProgressBar
-        android:id="@+id/edit_progress"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:visibility="gone" />
+    tools:context="com.mrteknindo.sipk.DetailGaji">
 
     <ScrollView
-        android:id="@+id/edit_form"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/kode_barang_ed"
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="4dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="kode barang"
-                    android:editable="false"
-                    android:inputType="text"
+                    android:text="KODE"/>
+
+                <TextView
+                    android:id="@+id/kode_gaji"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:textSize="14sp"
+                    android:hint="Kode :"
                     android:maxLines="1"
                     android:singleLine="true" />
 
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/nama_barang_ed"
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="4dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="nama barang"
+                    android:text="NAMA"/>
 
-                    android:imeOptions="actionUnspecified"
-                    android:inputType="text"
+                <TextView
+                    android:id="@+id/nama_karyawan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:hint="Nama :"
                     android:maxLines="1"
                     android:singleLine="true" />
 
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/harga_ed"
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="4dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="harga"
+                    android:text="PERIODE"/>
 
-                    android:inputType="text"
+                <TextView
+                    android:id="@+id/periode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:hint="Periode :"
                     android:maxLines="1"
                     android:singleLine="true" />
 
-            </android.support.design.widget.TextInputLayout>
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="UPAH POKOK"/>
 
-            <Button
-                android:id="@+id/btnEdit"
-                style="?android:textAppearanceSmall"
+            <TextView
+                android:id="@+id/upah_pokok"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Edit"
-                android:textStyle="bold" />
+                android:layout_marginLeft="4dp"
+                android:hint="Upah Pokok : "
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        <TextView
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TOTAL GAJI"/>
+
+            <TextView
+                android:id="@+id/tot_gaji"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:hint="Total Gaji :"
+                android:maxLines="1"
+                android:singleLine="true" />
 
         </LinearLayout>
     </ScrollView>

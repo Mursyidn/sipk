@@ -16,68 +16,128 @@
             <TextView
                 android:textStyle="bold"
                 android:textColor="@color/colorAccent"
-                android:layout_margin="10dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="NIK"/>
 
             <TextView
                 android:id="@+id/nik"
-                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                android:layout_marginLeft="12dp"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="nik"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="80dp"
-                android:layout_marginStart="80dp" />
+                android:text="NAMA"/>
+
             <TextView
                 android:id="@+id/nama_karyawan"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="nik"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
                 android:layout_alignParentTop="true" />
+
+
+
             <TextView
-                android:id="@+id/nama_perusahaan"
-                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                android:layout_marginLeft="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="nik"
+
+                android:text="ALAMAT"/>
+
+            <TextView
+                android:id="@+id/alamat"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
                 android:layout_alignParentTop="true" />
+
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                android:layout_marginLeft="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="JABATAN"/>
+
             <TextView
                 android:id="@+id/jabatan"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="nik"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
                 android:layout_alignParentTop="true" />
+
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                android:layout_marginLeft="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="BANK"/>
+
             <TextView
                 android:id="@+id/bank"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="nik"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
                 android:layout_alignParentTop="true" />
+
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                android:layout_marginLeft="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="NO REKENING"/>
+
             <TextView
                 android:id="@+id/norek"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="nik"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
                 android:layout_alignParentTop="true" />
+
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                android:layout_marginLeft="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="STATUS KARYAWAN"/>
+
             <TextView
                 android:id="@+id/status"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="nik"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
                 android:layout_alignParentTop="true" />
 
         </LinearLayout>

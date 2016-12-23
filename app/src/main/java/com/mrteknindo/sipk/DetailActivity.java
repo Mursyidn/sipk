@@ -13,30 +13,31 @@ import android.widget.TextView;
  */
 
 public class DetailActivity extends AppCompatActivity {
-
-    String  nik,nama_karyawan,nama_perusahaan,jabatan,bank,norek,status;
-    TextView  txtNik,txtnama,txtNama_perusahaan,txtjabatan,txtbank,txtnorek,txtstatus;
+//buat variable data
+    String  nik,nama_karyawan,jabatan,bank,norek,status,alamat;
+    TextView  txtNik,txtnama,txtjabatan,txtbank,txtnorek,txtstatus,txtalamat;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_activity);
 
-
+//menghubungkan dengan id yang ada pada layout
         nik = getIntent().getStringExtra("nik");
         nama_karyawan = getIntent().getStringExtra("nama_karyawan");
-        nama_perusahaan = getIntent().getStringExtra("nama_perusahaan");
+        alamat = getIntent().getStringExtra("alamat");
         jabatan = getIntent().getStringExtra("jabatan");
         bank = getIntent().getStringExtra("bank");
         norek = getIntent().getStringExtra("norek");
         status = getIntent().getStringExtra("status");
 
 
+//tampilan textview
         txtNik = (TextView)findViewById(R.id.nik);
         txtNik.setText(nik);
         txtnama = (TextView)findViewById(R.id.nama_karyawan);
         txtnama.setText(nama_karyawan);
-        txtNama_perusahaan = (TextView)findViewById(R.id.nama_perusahaan);
-        txtNama_perusahaan.setText(nama_perusahaan);
+        txtalamat = (TextView)findViewById(R.id.alamat);
+        txtalamat.setText(alamat);
         txtjabatan = (TextView)findViewById(R.id.jabatan);
         txtjabatan.setText(jabatan);
         txtbank = (TextView)findViewById(R.id.bank);

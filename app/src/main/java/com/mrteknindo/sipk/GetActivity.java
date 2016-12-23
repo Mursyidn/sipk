@@ -18,6 +18,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static com.mrteknindo.sipk.R.id.nama_perusahaan;
+
 /**
  * Created by Mursyid on 18/12/2016.
  */
@@ -29,13 +31,14 @@ public class GetActivity extends ListActivity {
     private static String TAG_STUDENTINFO = "karyawan";
     private static String TAG_KODE_KARYAWAN = "kode_karyawan";
     private static String TAG_NIK = "nik";
+    private static String TAG_ALAMAT = "alamat";
     private static String TAG_NAMA_KARYAWAN = "nama_karyawan";
-    private static String TAG_TANGGAL_LAHIR = "tanggal_lahir";
     private static String TAG_KODE_PERUSAHAAN = "kode_perusahaan";
     private static String TAG_JABATAN = "jabatan";
     private static String TAG_BANK = "bank";
     private static String TAG_NOREK = "norek";
     private static String TAG_STATUS_KARYAWAN = "status_karyawan";
+
 
 
     ArrayList<HashMap<String, String>> studentList = new ArrayList<>();
@@ -84,9 +87,9 @@ public class GetActivity extends ListActivity {
              * */
             ListAdapter adapter = new SimpleAdapter(
                     GetActivity.this, studentList,
-                    R.layout.list_item, new String[]{ TAG_NIK,TAG_NAMA_KARYAWAN,
-                    TAG_TANGGAL_LAHIR,TAG_KODE_PERUSAHAAN,TAG_STATUS_KARYAWAN}, new int[]{R.id.nik,
-                    R.id.nama_karyawan, R.id.tanggal_lahir,R.id.kode_perusahaan,R.id.status_karyawan});
+                    R.layout.list_item, new String[]{ TAG_NAMA_KARYAWAN,
+                    TAG_KODE_PERUSAHAAN,TAG_STATUS_KARYAWAN}, new int[]{
+                    R.id.nama_karyawan,R.id.kode_perusahaan,R.id.status_karyawan});
             setListAdapter(adapter);
         }
     }
@@ -108,6 +111,8 @@ public class GetActivity extends ListActivity {
                     String bank = c.getString(TAG_BANK);
                     String norek = c.getString(TAG_NOREK);
                     String status_karyawan = c.getString(TAG_STATUS_KARYAWAN);
+                    String alamat = c.getString(TAG_ALAMAT);
+
 
 
 
@@ -122,6 +127,7 @@ public class GetActivity extends ListActivity {
                     student.put(TAG_JABATAN, jabatan);
                     student.put(TAG_BANK, bank);
                     student.put(TAG_NOREK, norek);
+                    student.put(TAG_ALAMAT, alamat);
                     student.put(TAG_STATUS_KARYAWAN, status_karyawan.replace("-", " "));
 
                     // adding student to students list
@@ -149,11 +155,13 @@ public class GetActivity extends ListActivity {
         String bank = data.get(TAG_BANK);
         String norek = data.get(TAG_NOREK);
         String status = data.get(TAG_STATUS_KARYAWAN);
+        String alamat = data.get(TAG_ALAMAT);
 
         Intent detail = new Intent(getApplicationContext(), DetailActivity.class);
         detail.putExtra("kode_karyawan",kode_karyawan);
         detail.putExtra("nik", nik);
         detail.putExtra("nama_karyawan", nama_karyawan);
+        detail.putExtra("alamat", alamat);
         detail.putExtra("kode_perusahaan", kode_perusahaan);
         detail.putExtra("jabatan", jabatan);
         detail.putExtra("bank", bank);

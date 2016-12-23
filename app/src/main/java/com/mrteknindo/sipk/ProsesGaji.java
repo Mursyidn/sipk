@@ -37,7 +37,6 @@ public class ProsesGaji extends AppCompatActivity implements LoaderManager.Loade
 {
     private AddBarangTask aksiSimpan = null;
     // UI references.
-    private Spinner spNamen2;
     private EditText txtkode_gaji,txtperiode,txtperiode_kehadiran,txth_kerja,txth_cuti,txth_sakit,txth_izin_p,txth_tanpa_k,txtjam_minus,txtpotongan_pinjaman,txtkode_karyawan;
     private View mProgressView;
     private View mLoginFormView;
@@ -45,32 +44,16 @@ public class ProsesGaji extends AppCompatActivity implements LoaderManager.Loade
 
     private URL url;
 
-    private String[] germanFeminine = {
-            "Karin",
-            "Ingrid", "Helga",
-            "Renate",
-            "Elke",
-            "Ursula",
-            "Erika",
-            "Christa",
-            "Gisela",
-            "Monika"
-    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_proses_gaji);
-        spNamen2 = (Spinner) findViewById(R.id.sp_name_2);
-
-        // inisialiasi Array Adapter dengan memasukkan string array di atas
-        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, germanFeminine);
 
 
 // Set up the login form.
 
-        txtkode_gaji = (EditText) findViewById(R.id.kode_gaji);
         txtperiode = (EditText) findViewById(R.id.periode);
         txtperiode_kehadiran = (EditText) findViewById(R.id.periode_kehadiran);
         txth_kerja = (EditText) findViewById (R.id.hari_wajib_kerja);
@@ -104,7 +87,7 @@ public class ProsesGaji extends AppCompatActivity implements LoaderManager.Loade
         potongan_pinjaman = txtpotongan_pinjaman.getText().toString();
         kode_karyawan = txtkode_karyawan.getText().toString();
         showProgress(true);
-        aksiSimpan = new AddBarangTask(kode_gaji,periode, periode_kehadiran,h_kerja,h_cuti,h_sakit,h_izin_p,h_tanpa_k,jam_minus,potongan_pinjaman,kode_karyawan);
+        aksiSimpan = new AddBarangTask(kode_gaji, periode, periode_kehadiran, h_kerja,h_cuti,h_sakit,h_izin_p,h_tanpa_k,jam_minus,potongan_pinjaman,kode_karyawan);
         aksiSimpan.execute((Void) null);
     }
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
@@ -206,28 +189,17 @@ public class ProsesGaji extends AppCompatActivity implements LoaderManager.Loade
             String data = null;
             try {
 //Set Data Post
-                data = URLEncoder.encode("periode", "UTF-8")
-                        + "=" + URLEncoder.encode(mkode_gaji, "UTF-8");
-                data = URLEncoder.encode("periode", "UTF-8")
-                        + "=" + URLEncoder.encode(mperiode, "UTF-8");
-                data += "&" + URLEncoder.encode("periode_kehadiran", "UTF-8") + "="
-                        + URLEncoder.encode(mperiode_kehadiran, "UTF-8");
-                data += "&" + URLEncoder.encode("h_kerja", "UTF-8")
-                        + "=" + URLEncoder.encode(mh_kerja, "UTF-8");
-                data = URLEncoder.encode("h_cuti", "UTF-8")
-                        + "=" + URLEncoder.encode(mh_cuti, "UTF-8");
-                data += "&" + URLEncoder.encode("h_sakit", "UTF-8") + "="
-                        + URLEncoder.encode(mh_sakit, "UTF-8");
-                data += "&" + URLEncoder.encode("h_izin_p", "UTF-8")
-                        + "=" + URLEncoder.encode(mh_izin, "UTF-8");
-                data = URLEncoder.encode("h_tanpa_k", "UTF-8")
-                        + "=" + URLEncoder.encode(mh_tanpa_k, "UTF-8");
-                data += "&" + URLEncoder.encode("jam_minus", "UTF-8") + "="
-                        + URLEncoder.encode(mjam_minus, "UTF-8");
-                data += "&" + URLEncoder.encode("potongan_pinjaman", "UTF-8")
-                        + "=" + URLEncoder.encode(mpotongan_pinjaman, "UTF-8");
-                data += "&" + URLEncoder.encode("kode_karyawan", "UTF-8")
-                        + "=" + URLEncoder.encode(mkode_karyawan, "UTF-8");
+
+                data = URLEncoder.encode("periode", "UTF-8") + "=" + URLEncoder.encode(mperiode, "UTF-8");
+                data += "&" + URLEncoder.encode("periode_kehadiran", "UTF-8") + "=" + URLEncoder.encode(mperiode_kehadiran, "UTF-8");
+                data += "&" + URLEncoder.encode("h_kerja", "UTF-8") + "=" + URLEncoder.encode(mh_kerja, "UTF-8");
+                data += "&" + URLEncoder.encode("h_cuti", "UTF-8")  + "=" + URLEncoder.encode(mh_cuti, "UTF-8");
+                data += "&" + URLEncoder.encode("h_sakit", "UTF-8") + "="  + URLEncoder.encode(mh_sakit, "UTF-8");
+                data += "&" + URLEncoder.encode("h_izin_p", "UTF-8")  + "=" + URLEncoder.encode(mh_izin, "UTF-8");
+                data += "&" + URLEncoder.encode("h_tanpa_k", "UTF-8") + "=" + URLEncoder.encode(mh_tanpa_k, "UTF-8");
+                data += "&" + URLEncoder.encode("jam_minus", "UTF-8") + "="  + URLEncoder.encode(mjam_minus, "UTF-8");
+                data += "&" + URLEncoder.encode("potongan_pinjaman", "UTF-8")  + "=" + URLEncoder.encode(mpotongan_pinjaman, "UTF-8");
+                data += "&" + URLEncoder.encode("kode_karyawan", "UTF-8") + "=" + URLEncoder.encode(mkode_karyawan, "UTF-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }

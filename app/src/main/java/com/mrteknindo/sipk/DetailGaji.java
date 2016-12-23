@@ -6,34 +6,39 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
-import static com.mrteknindo.sipk.R.id.harga;
 
 public class DetailGaji extends AppCompatActivity{
 
+    //buat variable data
+    String  kode_gaji,nama_karyawan,periode,upah_pokok,tot_t_lembur,tot_gaji;
+    TextView txtKode,txtnama,txtperiode,txtupah_pokok,txtlembur,txtgaji;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_gaji);
 
+//menghubungkan dengan id yang ada pada layout
+        kode_gaji = getIntent().getStringExtra("kode_gaji");
+        nama_karyawan = getIntent().getStringExtra("nama_karyawan");
+        periode = getIntent().getStringExtra("periode");
+        upah_pokok = getIntent().getStringExtra("upah_pokok");
+        tot_gaji = getIntent().getStringExtra("tot_gaji");
 
-        String setKode_karyawan = getIntent().getStringExtra("kode_karyawan");
-        String setNama_karyawan = getIntent().getStringExtra("nama_karyawan");
-        String setNama_perusahaan = getIntent().getStringExtra("nama_perusahaan");
 
-        EditText kode_karyawan = (EditText) findViewById(R.id.kode_barang_ed);
-        EditText nama_karyawan = (EditText) findViewById(R.id.nama_barang_ed);
-        EditText nama_perusahaan = (EditText) findViewById(R.id.harga_ed);
+//tampilan textview
+        txtKode = (TextView)findViewById(R.id.kode_gaji);
+        txtKode.setText(kode_gaji);
+        txtperiode = (TextView)findViewById(R.id.periode);
+        txtperiode.setText(periode);
+        txtnama = (TextView)findViewById(R.id.nama_karyawan);
+        txtnama.setText(nama_karyawan);
+        txtupah_pokok = (TextView)findViewById(R.id.upah_pokok);
+        txtupah_pokok.setText(upah_pokok);
+        txtgaji= (TextView)findViewById(R.id.tot_gaji);
+        txtgaji.setText(tot_gaji);
 
-        assert kode_karyawan != null;
-        kode_karyawan.setText(setKode_karyawan); //kode.setVisibility(View.INVISIBLE);
-        assert nama_karyawan != null;
-        nama_karyawan.setText(setNama_karyawan); //nama.setVisibility(View.INVISIBLE);
-        assert nama_perusahaan != null;
-        nama_perusahaan.setText(setNama_perusahaan); //harga.setVisibility(View.INVISIBLE);
 
-        Button btnEdit = (Button) findViewById(R.id.btnEdit);
-        assert btnEdit != null;
-        btnEdit.setVisibility(View.GONE);
     }
 }
